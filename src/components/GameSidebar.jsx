@@ -14,7 +14,7 @@ export default function GameSidebar({
           onClick={() => onSelect(game.id)}
         >
           <img
-            src={`/images/${game.image}`}
+            src={`${import.meta.env.BASE_URL}images/${game.image}`}
             alt={game.name}
           />
 

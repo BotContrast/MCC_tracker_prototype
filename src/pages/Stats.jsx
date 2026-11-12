@@ -1,7 +1,7 @@
 import { useState } from 'react';
 
 import GameSidebar from '../components/GameSidebar.jsx';
-import PlayerHeader from '../components/PlayerHeader.jsx';
+// import PlayerHeader from '../components/PlayerHeader.jsx';
 import StatCard from '../components/StatCard.jsx';
 
 export default function Stats({ player, onSearch }) {
@@ -41,14 +41,15 @@ export default function Stats({ player, onSearch }) {
           />
 
           <button type="submit">
-            SEARCH
+            <span>SEARCH</span>
           </button>
         </form>
 
-        <PlayerHeader
-          player={player}
-        />
-      </header>
+        {/* <PlayerHeader player={player}/> */}
+        <div className="player-name">
+          <h2>{player.gamertag}</h2>
+        </div>
+      </header> 
 
       <main className="main-content">
         <GameSidebar

@@ -1,19 +1,19 @@
-import { useState } from 'react';
-
-export default function Home({ onSearch }) {
-  const [name, setName] = useState('');
+export default function Home({ onSearch, loading, error }) {
 
   const submit = (e) => {
     e.preventDefault();
 
-    onSearch(
-      name.trim() || 'Bot Contrast'
-    );
+    const formData = new FormData(e.currentTarget);
+    const gamertag = formData.get('gamertag');
+
+    onSearch(gamertag);
   };
 
   return (
     <main className="hero">
+
       <div className="content">
+
         <h1>
           MCC Player Tracker
         </h1>
@@ -26,17 +26,38 @@ export default function Home({ onSearch }) {
           className="search-container"
           onSubmit={submit}
         >
+
           <input
-            value={name}
-            onChange={(e) => setName(e.target.value)}
+            type="text"
+            name="gamertag"
             placeholder="Search Player"
+            disabled={loading}
+            required
           />
 
-          <button type="submit">
-            Search
+          <button
+            type="submit"
+            disabled={loading}
+          >
+            {loading ? 'Loading...' : 'Search'}
           </button>
+
         </form>
+
+        {loading && (
+          <p className="loading-message">
+            Retrieving player statistics...
+          </p>
+        )}
+
+        {error && (
+          <p className="error-message">
+            {error}
+          </p>
+        )}
+
       </div>
+
     </main>
   );
 }

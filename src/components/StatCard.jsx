@@ -1,4 +1,8 @@
 export default function StatCard({ label, value }) {
+  if (value === null || value === undefined || value === '' || value === 'N/A' || value === 0) {
+    return null;
+  }
+
   const formattedLabel = label
     .replace(/([A-Z])/g, ' $1')
     .replace(/^./, (char) => char.toUpperCase());
@@ -8,9 +12,8 @@ export default function StatCard({ label, value }) {
       <span className="stat-label">
         {formattedLabel}
       </span>
-
       <span className="stat-value">
-        {value ?? 'N/A'}
+        {value}
       </span>
     </div>
   );

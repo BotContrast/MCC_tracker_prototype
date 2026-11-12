@@ -153,6 +153,11 @@ h1 {
     background: #d8d8d8;
 }
 
+.search-bar button span {
+    display: inline-block;
+    transform: scale(0.70);
+}
+
 .search-icon {
     padding: 10px 25px;
     border-right: 1px solid #555;
@@ -168,6 +173,8 @@ h1 {
     font-size: 2rem;
     font-weight: bold;
     cursor: pointer;
+    flex: 1;
+    padding: 0;
 }
 
 .search-bar button:hover {
@@ -370,6 +377,14 @@ footer {
     }
 }
 
+.player-name h2 {
+  color: white;
+  font-size: 2rem;
+  margin: 0;
+  margin-top: 10px;
+}
+
+
 /* React prototype additions */
 html, body, #root, .app-shell { min-height: 100%; }
 #root { min-height: 100vh; }
@@ -377,7 +392,7 @@ html, body, #root, .app-shell { min-height: 100%; }
 button { font-family: inherit; }
 .game-link { width: 100%; border: 0; background: transparent; cursor: pointer; font: inherit; text-align: left; }
 .mode-btn.active { background: #ffc000; color: #000; }
-.search-bar input { width: 230px; border: 0; outline: 0; padding: 0 20px; background: #d8d8d8; font-size: 1rem; }
+.search-bar input { width: 230px; border: 0; outline: 0; padding: 0 20px; background: #d8d8d8; font-size: 1rem; flex: 3; min-width: 0; }
 .nameplate-wrap { position: relative; display: flex; align-items: center; justify-content: center; }
 .nameplate-wrap img { height: 70px; width: auto; }
 .nameplate-wrap span { position: absolute; font-weight: bold; text-shadow: 0 2px 3px #000; }
