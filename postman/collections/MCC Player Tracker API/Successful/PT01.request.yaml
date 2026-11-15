@@ -1,0 +1,5 @@
+$kind: http-request
+url: http://localhost:5000/api/players/Bot%20Contrast/multiplayer
+method: GET
+examples: .resources/PT01.resources/examples
+order: 1000

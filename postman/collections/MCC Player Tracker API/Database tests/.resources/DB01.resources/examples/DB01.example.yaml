@@ -1,0 +1,91 @@
+$kind: http-example
+request:
+  url: http://localhost:5000/api/players/Bot%20Contrast
+  method: GET
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    X-Powered-By: Express
+    Access-Control-Allow-Origin: "*"
+    Content-Type: application/json; charset=utf-8
+    Content-Length: "1009"
+    ETag: W/"3f1-RlZyBRzoS/T0Bp4u/bGHh7uJaxo"
+    Date: Sun, 15 Nov 2026 11:32:12 GMT
+    Connection: keep-alive
+    Keep-Alive: timeout=5
+  body:
+    type: json
+    content: |-
+      {
+        "_id": "6af98765853752e378440212",
+        "gamertagLower": "bot contrast",
+        "__v": 0,
+        "banReason": null,
+        "banned": false,
+        "gamertag": "Bot Contrast",
+        "lastUpdated": "2026-11-15T10:20:19.657Z",
+        "leaderboards": true,
+        "playerDetails": {
+          "clan_tag": "I am a Bot",
+          "emblem_color0": 23,
+          "emblem_color1": 10,
+          "emblem_color2": 31,
+          "emblem_texture0": 229,
+          "emblem_texture1": 615,
+          "last_updated": "Sun, 15 Nov 2026 10:05:30 GMT",
+          "nameplate_id": 493,
+          "service_tag": "Bot"
+        },
+        "ranks": [
+          {
+            "playlist_name": "H4 Squad Battle",
+            "rank": 11
+          },
+          {
+            "playlist_name": "Halo: Reach Invasion",
+            "rank": 4
+          },
+          {
+            "playlist_name": "H3 Team Slayer",
+            "rank": 3
+          },
+          {
+            "playlist_name": "Halo: Reach Hardcore",
+            "rank": 3
+          },
+          {
+            "playlist_name": "H2A Team Hardcore",
+            "rank": 1
+          },
+          {
+            "playlist_name": "H2C Team Hardcore",
+            "rank": 1
+          },
+          {
+            "playlist_name": "H3 Team Hardcore",
+            "rank": 1
+          },
+          {
+            "playlist_name": "H3 Hardcore Doubles",
+            "rank": 1
+          },
+          {
+            "playlist_name": "H3 Team Doubles",
+            "rank": 1
+          },
+          {
+            "playlist_name": "HCE Hardcore Doubles",
+            "rank": 1
+          }
+        ],
+        "vip": false,
+        "xp": {
+          "remaining": 7508000,
+          "tier": 292,
+          "total": 506101000,
+          "tour": 10
+        },
+        "xuid": "2535432916142574"
+      }
+order: 1000

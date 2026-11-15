@@ -1,4 +1,3 @@
-
 export default function ProcessHaloCampaign(rawData) {
   const campaignData =
     rawData?.data?.stats?.Campaign ??
@@ -132,6 +131,7 @@ export default function ProcessHaloCampaign(rawData) {
     mcc: getStats('All'),
     halo_ce: getStats('Halo1'),
     halo_2: getStats('Halo2'),
+    halo_2a: getStats('Halo2'),
     halo_3: getStats('Halo3'),
     halo_3_odst: getStats('Halo3ODST'),
     halo_4: getStats('Halo4'),

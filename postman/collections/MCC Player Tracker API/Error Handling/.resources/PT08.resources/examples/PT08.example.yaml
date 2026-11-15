@@ -1,0 +1,23 @@
+$kind: http-example
+request:
+  url: http://localhost:5000/api/players/Bot%20Contrast/campaign
+  method: GET
+response:
+  statusCode: 404
+  statusText: Not Found
+  headers:
+    X-Powered-By: Express
+    Access-Control-Allow-Origin: "*"
+    Content-Type: application/json; charset=utf-8
+    Content-Length: "41"
+    ETag: W/"29-8EIjxVzp9V1IEJMuyTKk6FOkD2o"
+    Date: Sun, 15 Nov 2026 10:23:49 GMT
+    Connection: keep-alive
+    Keep-Alive: timeout=5
+  body:
+    type: json
+    content: |-
+      {
+        "error": "Campaign statistics not found"
+      }
+order: 1000

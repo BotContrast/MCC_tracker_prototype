@@ -1,0 +1,26 @@
+$kind: http-example
+request:
+  url: http://localhost:5000/api/import/Bot%20Contrast/campaign
+  method: POST
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    X-Powered-By: Express
+    Access-Control-Allow-Origin: "*"
+    Content-Type: application/json; charset=utf-8
+    Content-Length: "159"
+    ETag: W/"9f-qvj6DMdPee6I/PYEwgWDpHjTjh8"
+    Date: Sun, 15 Nov 2026 11:42:57 GMT
+    Connection: keep-alive
+    Keep-Alive: timeout=5
+  body:
+    type: json
+    content: |-
+      {
+        "message": "Campaign statistics imported successfully",
+        "gamertag": "Bot Contrast",
+        "playerId": "6af98765853752e378440212",
+        "campaignId": "6af99ac3853752e3784405fc"
+      }
+order: 1000

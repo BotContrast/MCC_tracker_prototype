@@ -1,0 +1,23 @@
+$kind: http-example
+request:
+  url: http://localhost:5000/api/players/Bot%20Contrast/multiplayer
+  method: GET
+response:
+  statusCode: 404
+  statusText: Not Found
+  headers:
+    X-Powered-By: Express
+    Access-Control-Allow-Origin: "*"
+    Content-Type: application/json; charset=utf-8
+    Content-Length: "44"
+    ETag: W/"2c-tvZioQD+bY2VLqtF9nYbkvofndQ"
+    Date: Sun, 15 Nov 2026 10:22:17 GMT
+    Connection: keep-alive
+    Keep-Alive: timeout=5
+  body:
+    type: json
+    content: |-
+      {
+        "error": "Multiplayer statistics not found"
+      }
+order: 1000

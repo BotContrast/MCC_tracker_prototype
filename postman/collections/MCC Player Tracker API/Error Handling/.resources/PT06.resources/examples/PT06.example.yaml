@@ -1,0 +1,23 @@
+$kind: http-example
+request:
+  url: http://localhost:5000/api/players/InvalidPlayer123
+  method: GET
+response:
+  statusCode: 404
+  statusText: Not Found
+  headers:
+    X-Powered-By: Express
+    Access-Control-Allow-Origin: "*"
+    Content-Type: application/json; charset=utf-8
+    Content-Length: "28"
+    ETag: W/"1c-EABhUno6FjF6SPIShivMGp7fuBw"
+    Date: Sun, 15 Nov 2026 10:09:54 GMT
+    Connection: keep-alive
+    Keep-Alive: timeout=5
+  body:
+    type: json
+    content: |-
+      {
+        "error": "Player not found"
+      }
+order: 1000

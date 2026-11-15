@@ -1,0 +1,5 @@
+$kind: http-request
+url: ""
+method: GET
+examples: .resources/PT06.resources/examples
+order: 1000

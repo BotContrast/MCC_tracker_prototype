@@ -133,28 +133,33 @@ export default function App() {
         `${API_URL}/api/players/${encodedGamertag}/campaign`
       );
 
-      const campaignData = campaignResult.response.ok
-        ? campaignResult.data
-        : null;
+      if (!campaignResult.response.ok) {
+        throw new Error(
+          campaignResult.data?.error ||
+          'Could not retrieve campaign statistics.'
+        );
+      }
+
+      const campaignData = campaignResult.data;
 
       // Process multiplayer statistics
       const rawMultiplayer = multiplayerData.data ?? multiplayerData;
       const processedPlayer = ProcessHaloMultiplayer(rawMultiplayer);
-          
+
       // Process campaign statistics
       const rawCampaign = campaignData?.data ?? campaignData;
       const processedCampaign = ProcessHaloCampaign(rawCampaign);
-          
+
       // Combine multiplayer and campaign statistics
       const combinedStats = { ...processedPlayer.stats };
-          
+
       for (const [game, campaignStats] of Object.entries(processedCampaign)) {
         combinedStats[game] = {
           ...combinedStats[game],
           campaign: campaignStats
         };
       }
-      
+
       // Create final player object
       const finalPlayer = {
         ...processedPlayer,
@@ -167,7 +172,7 @@ export default function App() {
       
         stats: combinedStats
       };
-      
+
       setPlayer(finalPlayer);
       setPage('stats');
 

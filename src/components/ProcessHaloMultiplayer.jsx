@@ -1,11 +1,29 @@
 export default function ProcessHaloMultiplayer(rawData) {
-  // Get matchmaking statistics
-  const matchmaking = rawData.stats?.Multiplayer?.Matchmaking;
+  // Get multiplayer data
+  const multiplayerData =
+    rawData?.data?.stats?.Multiplayer ??
+    rawData?.stats?.Multiplayer ??
+    {};
+
+  const matchmaking = multiplayerData.Matchmaking ?? {};
+
+  const formatTime = (milliseconds) => {
+    const totalSeconds = Math.floor(milliseconds / 1000);
+    const hours = Math.floor(totalSeconds / 3600);
+    const minutes = Math.floor((totalSeconds % 3600) / 60);
+    const seconds = totalSeconds % 60;
+
+    return [
+      String(hours).padStart(2, '0'),
+      String(minutes).padStart(2, '0'),
+      String(seconds).padStart(2, '0')
+    ].join(':');
+  };
 
   const getStats = (game) => {
-    const stats = matchmaking?.[game]?.Stats;
+    const stats = matchmaking?.[game]?.Stats ?? {};
 
-    if (!stats) {
+    if (Object.keys(stats).length === 0) {
       return null;
     }
 
@@ -31,16 +49,16 @@ export default function ProcessHaloMultiplayer(rawData) {
   };
 
   return {
-    _id: rawData.xuid,
+    _id: rawData?.xuid ?? null,
 
-    gamertag: rawData.gamertag,
+    gamertag: rawData?.gamertag ?? null,
 
     rank: 'Tour10-21.png',
 
     nameplate: 'nameplate.png',
 
     lastUpdated:
-      rawData.player_details?.last_updated ?? null,
+      rawData?.player_details?.last_updated ?? null,
 
     games: [
       { id: 'mcc', name: 'All', image: 'mcc.png' },
@@ -54,63 +72,14 @@ export default function ProcessHaloMultiplayer(rawData) {
     ],
 
     stats: {
-      mcc: {
-        campaign: {},
-        multiplayer: getStats('All')
-      },
-
-      halo_ce: {
-        campaign: {},
-        multiplayer: getStats('Halo1')
-      },
-
-      halo_2: {
-        campaign: {},
-        multiplayer: getStats('Halo2')
-      },
-
-      halo_2a: {
-        campaign: {},
-        multiplayer: getStats('Halo2A')
-      },
-
-      halo_3: {
-        campaign: {},
-        multiplayer: getStats('Halo3')
-      },
-
-      halo_3_odst: {
-        campaign: {},
-        multiplayer: null
-      },
-
-      halo_4: {
-        campaign: {},
-        multiplayer: getStats('Halo4')
-      },
-
-      halo_reach: {
-        campaign: {},
-        multiplayer: getStats('HaloReach')
-      }
+      mcc: {multiplayer: getStats('All')},
+      halo_ce: {multiplayer: getStats('Halo1')},
+      halo_2: {multiplayer: getStats('Halo2')},
+      halo_2a: {multiplayer: getStats('Halo2A')},
+      halo_3: {multiplayer: getStats('Halo3')},
+      halo_3_odst: {multiplayer: getStats('Halo3')},
+      halo_4: {multiplayer: getStats('Halo4')},
+      halo_reach: {multiplayer: getStats('HaloReach')}
     }
   };
-}
-
-function formatTime(milliseconds) {
-  const totalSeconds = Math.floor(milliseconds / 1000);
-
-  const hours = Math.floor(totalSeconds / 3600);
-
-  const minutes = Math.floor(
-    (totalSeconds % 3600) / 60
-  );
-
-  const seconds = totalSeconds % 60;
-
-  return [
-    String(hours).padStart(2, '0'),
-    String(minutes).padStart(2, '0'),
-    String(seconds).padStart(2, '0')
-  ].join(':');
 }

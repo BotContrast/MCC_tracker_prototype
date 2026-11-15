@@ -1,0 +1,27 @@
+$kind: http-example
+request:
+  url: http://localhost:5000/api/import/Bot%20Contrast/multiplayer
+  method: POST
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    X-Powered-By: Express
+    Access-Control-Allow-Origin: "*"
+    Content-Type: application/json; charset=utf-8
+    Content-Length: "191"
+    ETag: W/"bf-E7I1gQTCODb3uoQeammekQAUWRc"
+    Date: Sun, 15 Nov 2026 11:35:27 GMT
+    Connection: keep-alive
+    Keep-Alive: timeout=5
+  body:
+    type: json
+    content: |-
+      {
+        "message": "Multiplayer statistics imported successfully",
+        "gamertag": "Bot Contrast",
+        "xuid": "2535432916142574",
+        "playerId": "6af98765853752e378440212",
+        "multiplayerId": "6af99901853752e3784405b2"
+      }
+order: 1000
